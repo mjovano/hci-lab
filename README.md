@@ -25,7 +25,7 @@
 ### Semester Assignments
 
 - Link to Assignment 1: [**Assignment 1**](https://github.com/mjovano/hci-lab/blob/master/assignments/unknown_2024.10.24-02.57.mp4) <!-- Replace with actual URL -->
-- Link to Assignment 2: [**Assignment 2**]((https://github.com/mjovano/hci-lab/blob/master/assignments/HCIzad2.docx)) <!-- Replace with actual URL -->
+- Link to Assignment 2: [**Assignment 2**](https://github.com/mjovano/hci-lab/blob/master/assignments/HCIzad2.docx) <!-- Replace with actual URL -->
 - Link to Assignment 3: [**Assignment 3**](URL_TO_ASSIGNMENT_3) <!-- Replace with actual URL -->
 <!-- Add more assignments as necessary -->
 
