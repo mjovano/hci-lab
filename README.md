@@ -18,7 +18,7 @@
 
 ### Semester Project
 
-- Link to your production version: [**Production Version**]([URL_TO_PRODUCTION_VERSION]) <!-- Replace with actual URL -->
+- Link to your production version: [**Production Version**]([https://side-project-six.vercel.app/]) <!-- Replace with actual URL -->
 - Link to your final report: [**Final Report**](URL_TO_FINAL_REPORT) <!-- Replace with actual URL -->
 <!-- Add more as necessary -->
 
@@ -26,7 +26,7 @@
 
 - Link to Assignment 1: [**Assignment 1**](https://github.com/mjovano/hci-lab/blob/master/assignments/unknown_2024.10.24-02.57.mp4) <!-- Replace with actual URL -->
 - Link to Assignment 2: [**Assignment 2**](https://github.com/mjovano/hci-lab/blob/master/assignments/HCIzad2.docx) <!-- Replace with actual URL -->
-- Link to Assignment 3: [**Assignment 3**](URL_TO_ASSIGNMENT_3) <!-- Replace with actual URL -->
+- Link to Assignment 3: [**Assignment 3**](https://side-project-six.vercel.app/) <!-- Replace with actual URL -->
 <!-- Add more assignments as necessary -->
 
 ## Project Requirements
