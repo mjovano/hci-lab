@@ -1,36 +1,83 @@
-'use client';
+import Navbar from "@/components/NavbarHero";
+import Search from "@/components/SearchBar";
+import DropdownMenu from "@/components/Dropdown";
+import Carousel from "@/components/Carousel";
 
 export default function Home() {
+
+const boxTexts = [
+  "Top of the line tools for foraging, cooking and campsite setup!",
+  "Celebrate the season with 30% off all tents this Christmas!",
+  "Gear up in style with our new exclusive clothing merchandise!",
+];
+
+  
   return (
-    <main className="flex min-h-screen justify-between p-2 relative">
+    <main className="min-h-screen p-2">
 
       <div className="hidden md:block absolute z-50 pl-20 pt-30">
       <span className="text-lg font-semibold">Summit Supply</span>
       </div>
 
-      <div
-      className="absolute inset-0 z-0"
-      style={{
-        backgroundImage: "url('/img/light.png')",
-        backgroundSize: '100%',
-        backgroundPosition: 'center',
-        opacity: 0.8,
-        pointerEvents: 'none',
-      }}
-      />
+      <Navbar/>
       
-      <div className="relative z-10 w-full flex flex-col items-center">
-      <h1 className="text-4xl font-bold">Welcome to Next.js!</h1>
-      <p className="mt-4 text-lg">This is a simple Next.js application.</p>
-      <div className="mt-8">
-        <a
-        href="https://nextjs.org/docs"
-        className="text-blue-600 hover:underline"
+      <div className="relative flex flex-row space-x-4 my-6 mx-auto items-center md:w-1/2">
+        <div className="flex-1 p-4">
+          <Search />
+        </div>
+        <div className="flex-1 p-4 hidden sm:block">
+          <DropdownMenu />
+        </div>
+      </div>
+
+      <Carousel
+        urls={[
+          "https://i.imgur.com/ZKz3Xa9.jpeg",
+          "https://i.imgur.com/3X9m4dH.jpeg",
+          "https://i.imgur.com/IcGH43e.jpeg",
+        ]}
+      />
+
+
+      <div className="flex justify-center mt-5">
+        <div className="flex gap-4 w-4/5 md:w-3xl">
+          {boxTexts.map((text, idx) => (
+        <div
+          key={idx}
+          className={`flex flex-col justify-between rounded-2xl backdrop-blur-lg bg-white/30 shadow-xl md:w-1/3 aspect-square md:p-6 p-1 ${
+            idx === boxTexts.length - 1 ? "hidden md:flex" : ""
+          }`}
         >
-        Learn more about Next.js
+          <div className="flex flex-1 items-center justify-center text-center text-xs md:text-lg font-semibold text-gray-800 mt-2">
+            {text}
+          </div>
+          <a
+            href="/shop"
+            className="md:mt-4 mb bg-zinc-600 hover:bg-zinc-900 text-gray-300 font-bold py-2 rounded-2xl text-center transition-colors text-xs md:text-lg"
+          >
+            SHOP NOW
+          </a>
+        </div>
+          ))}
+        </div>
+      </div>
+
+      
+      <div className="flex justify-center gap-16 mt-8 md:hidden">
+        <a
+          href="/about"
+          className="text-zinc-700 hover:underline text-md font-bold"
+        >
+          About
+        </a>
+        <a
+          href="/contact"
+          className="text-zinc-700 hover:underline font-large font-bold text-md"
+        >
+          Contact
         </a>
       </div>
-      </div>
+
     </main>
   );
 }
