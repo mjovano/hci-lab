@@ -13,17 +13,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="h-screen overflow-hidden">
+      <body className="overflow-hidden">
         <div
           className="absolute inset-0 -z-10"
           style={{
-        backgroundImage: "url('/img/light.png')",
+        backgroundImage: "url('/img/bg.png')",
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        opacity: 0.8,
+        backgroundPosition: 'top',
+        opacity: 1,
         pointerEvents: 'none',
           }}
-        />
+        ></div>
+
         {children}
       </body>
     </html>

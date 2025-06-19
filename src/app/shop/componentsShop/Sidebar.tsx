@@ -25,7 +25,7 @@ const Dropdown = ({ title, options, selected, onChange }: DropdownProps) => {
         <div className="mb-2">
 
             <button
-                className="w-full flex justify-between items-center px-4 py-1"
+                className="w-full flex justify-between items-center px-4 py-1 mt-3"
                 onClick={() => setOpen((prev) => !prev)}
                 type="button"
             >
@@ -36,7 +36,7 @@ const Dropdown = ({ title, options, selected, onChange }: DropdownProps) => {
             <hr className="border-t border-zinc-700 mx-2" />
 
             {open && (
-                <div className="mt-2 px-2">
+                <div className="my-2 px-2">
 
                     {options.map((opt) => (
                         <label key={opt.value} className="flex items-center space-x-2 cursor-pointer">

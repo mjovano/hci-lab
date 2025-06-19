@@ -15,8 +15,9 @@ const boxTexts = [
   return (
     <main className="min-h-screen p-2">
 
-      <div className="hidden md:block absolute z-50 pl-20 pt-30">
-      <span className="text-lg font-semibold">Summit Supply</span>
+      <div className="hidden xl:flex flex-col absolute z-50 ml-20 mt-30 p-3 items-center rounded-2xl backdrop-blur-sm">
+          <span className="text-5xl font-primary text-amber-100/90 tracking-wider">Summit</span>
+          <p className="text-4xl font-primary text-amber-100/80 tracking-widest">Supply</p>
       </div>
 
       <Navbar/>
@@ -63,16 +64,16 @@ const boxTexts = [
       </div>
 
       
-      <div className="flex justify-center gap-16 mt-8 md:hidden">
+      <div className="flex justify-center gap-20 mt-auto md:hidden fixed bottom-0 w-full pb-10">
         <a
           href="/about"
-          className="text-zinc-700 hover:underline text-md font-bold"
+          className="text-zinc-900 font-secondary font-semibold"
         >
           About
         </a>
         <a
           href="/contact"
-          className="text-zinc-700 hover:underline font-large font-bold text-md"
+          className="text-zinc-900 font-secondary font-semibold"
         >
           Contact
         </a>

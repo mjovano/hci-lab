@@ -1,8 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Jura&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+New&display=swap');
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --indigo: #7982e9;
+
+  --font-primary: "Jura", sans-serif;
+  --font-secondary: 'Inria Sans', sans-serif;
 }
 
 @theme inline {
@@ -23,5 +29,13 @@ body {
   background: var(--background);
   color: var(--foreground);
   color: var(--foreground);
-  font-family: system-ui;
+  font-family: "Segoe UI";
+}
+
+.font-primary {
+  font-family: var(--font-primary);
+}
+
+.font-secondary {
+  font-family: var(--font-secondary);
 }

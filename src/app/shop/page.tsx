@@ -1,12 +1,13 @@
 import Navbar from "@/components/NavbarShop";
-import Results from "./components/Results";
-import Sidebar from "./components/Sidebar";
+import Sidebar from "./componentsShop/Sidebar";
+import Mainbar from "./componentsShop/Mainbar";
 
 
 export default function Shop() {
+
     return (
         
-        <main className="flex flex-col max-h-full md:px-28">
+        <main className="flex flex-col min-h-screen md:px-28">
 
 
             <div className="md:-mx-28 mb-4">
@@ -36,14 +37,7 @@ export default function Shop() {
                 <Sidebar/>        
                 </div>
 
-                <div className="flex flex-col flex-1">
-                    <div className="h-14 mb-2">
-                        <Results count={100000000}/>
-                    </div>
-                    <div className="flex-1 backdrop-blur-xs bg-amber-700/10 rounded-3xl mx-2">
-                            {/* product cards component*/}
-                    </div>
-                </div>
+                <Mainbar />
 
             </div>
 
