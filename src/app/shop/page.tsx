@@ -2,6 +2,7 @@ import Navbar from "./componentsShop/NavbarShop";
 import Sidebar from "./componentsShop/Sidebar";
 import Mainbar from "./componentsShop/Mainbar";
 import { db } from "../../firebaseConfig";
+import { Suspense } from "react";
 
 
 export default function Shop() {
@@ -36,7 +37,9 @@ export default function Shop() {
             <div className="flex w-full min-h-screen gap-4 pb-20 md:pb-50">
 
                 <div className="hidden md:block w-1/6 bg-white/10 rounded-lg backdrop-blur-xl p-4 overflow-auto">
-                <Sidebar/>        
+                <Suspense>
+                    <Sidebar/> 
+                </Suspense>       
                 </div>
 
                 <Mainbar />
