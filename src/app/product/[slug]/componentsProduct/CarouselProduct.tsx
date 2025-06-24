@@ -1,10 +1,13 @@
 "use client";
 import React, { useState } from "react";
+import { ref, get } from "firebase/database";
+import { db } from "@/firebaseConfig";
 
-export default function CarouselProduct({ images, slug }: { images: string[]; slug: string }) {
+export default async function CarouselProduct({ slug }: { slug: string }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [flag, setFlag] = useState(false);
 
+    const images = await fetchItemImages(slug);
 
     const goToPrevious = () => {
         setCurrentIndex((prevIndex) =>
@@ -120,4 +123,16 @@ else {
         </div>
     );
 }
+}
+
+export async function fetchItemImages(itemId: string): Promise<string[]> {
+    const imagesRef = ref(db, `items/${itemId}/images`);
+    const snapshot = await get(imagesRef);
+
+    if (!snapshot.exists()) {
+        return [];
+    }
+
+    const imagesObj = snapshot.val();
+    return Object.values(imagesObj);
 }

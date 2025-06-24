@@ -1,12 +1,9 @@
 import NavbarShop from "../../shop/componentsShop/NavbarShop";
 import CarouselProduct from "./componentsProduct/CarouselProduct";
-import { ref, get } from "firebase/database";
-import { db } from "@/firebaseConfig";
 import ProductDetails from "./componentsProduct/ProductDetails";
 
 export default async function ProductPage(props: { params: Promise<{ slug: string }> }) {
     const params = await props.params;  // slug is last part of url (itemID)
-    const images = await fetchItemImages(params.slug);
 
     return (
         
@@ -19,7 +16,6 @@ export default async function ProductPage(props: { params: Promise<{ slug: strin
                 <div className="flex-1 bg-gray-100/40 p-4 rounded">
                 
                 <CarouselProduct
-                    images={images}
                     slug={params.slug}
                 />
 
@@ -34,17 +30,4 @@ export default async function ProductPage(props: { params: Promise<{ slug: strin
             </div>
         </main>
     );
-}
-
-// Fetches all image URLs for a given item ID from the 'images' subcollection
-export async function fetchItemImages(itemId: string): Promise<string[]> {
-    const imagesRef = ref(db, `items/${itemId}/images`);
-    const snapshot = await get(imagesRef);
-
-    if (!snapshot.exists()) {
-        return [];
-    }
-
-    const imagesObj = snapshot.val();
-    return Object.values(imagesObj);
 }
