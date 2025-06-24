@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Search from '@/components/SearchBar';
+import { Suspense } from 'react';
 
 
 type FilterOption = {
@@ -114,7 +115,9 @@ export default function Sidebar() {
         <div className="w-full h-full flex flex-col p-4">
             
             <div className="mb-4">
-                <Search showButton={0}/>
+                <Suspense>
+                    <Search showButton={0}/>
+                </Suspense>
             </div>
 
             <Dropdown
