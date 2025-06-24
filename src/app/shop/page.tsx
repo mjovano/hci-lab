@@ -1,9 +1,11 @@
-import Navbar from "@/components/NavbarShop";
+import Navbar from "./componentsShop/NavbarShop";
 import Sidebar from "./componentsShop/Sidebar";
 import Mainbar from "./componentsShop/Mainbar";
+import { db } from "../../firebaseConfig";
 
 
 export default function Shop() {
+
 
     return (
         
@@ -16,8 +18,8 @@ export default function Shop() {
 
             {/* Change to component later*/}
             <div className="hidden md:flex flex-col w-full items-start my-4 backdrop-blur-md pt-2">
-            <div className="flex w-full space-x-14 mx-8">
-                {["Home", "Products", "Deals", "About", "Contact"].map((word) => (
+            <div className="flex w-full space-x-20 mx-8">
+                {["Home", "Products", "Deals", "About"].map((word) => (
                 <button
                     key={word}
                     className="text-zinc-700 hover:text-zinc-900 transition-colors"

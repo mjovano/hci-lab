@@ -17,11 +17,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-console.log('Firebase app initialized successfully!', app, firebaseConfig);
-
 const auth = getAuth(app);
 const db = getDatabase(app);
-
-console.log('Firebase Auth, Firestore, and Realtime Database initialized successfully!');
 
 export { auth, db};
