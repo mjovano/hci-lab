@@ -2,6 +2,7 @@ import Navbar from "@/components/NavbarHero";
 import Search from "@/components/SearchBar";
 import DropdownMenu from "@/components/Dropdown";
 import Carousel from "@/components/Carousel";
+import { Suspense } from "react";
 
 export default function Home() {
 
@@ -24,7 +25,9 @@ const boxTexts = [
       
       <div className="relative flex flex-row space-x-4 my-6 mx-auto items-center md:w-1/2">
         <div className="flex-1 p-4">
-          <Search />
+          <Suspense>
+            <Search />
+          </Suspense>
         </div>
         <div className="flex-1 p-4 hidden sm:block">
           <DropdownMenu />

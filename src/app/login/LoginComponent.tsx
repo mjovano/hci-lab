@@ -153,7 +153,7 @@ export default function LoginComponent() {
                 <div className="max-w-md p-10 bg-gray-100/50 rounded-xl shadow backdrop-blur-xs flex flex-col gap-4 items-center">
                     
                     <Link
-                        prefetch={true}
+                        prefetch={false}
                         href="/"
                         className="w-full p-2 px-6 bg-zinc-600 text-amber-100 rounded hover:bg-zinc-700 text-center text-semibold text-lg"
                     >
