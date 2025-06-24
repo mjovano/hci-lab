@@ -15,9 +15,9 @@ interface Item {
     featured?: boolean;
 }
 
-export default function ProductDetails( { id }: { id: string }) {
-    const [item, setItem] = useState<Item | null>(null);
-    const [loading, setLoading] = useState(true);
+export default async function ProductDetails( { id }: { id: string }) {
+    //const [item, setItem] = useState<Item | null>(null);
+    //const [loading, setLoading] = useState(true);
     const [user, setUser] = useState<User | null>(null);
 
     useEffect(() => {
@@ -26,29 +26,8 @@ export default function ProductDetails( { id }: { id: string }) {
         return () => unsubscribe();
     }, []);
 
-    useEffect(() => {
-        const fetchItem = async () => {
-            setLoading(true);
-            try {
-                const itemRef = ref(db, `items/${id}`);
-                const snapshot = await get(itemRef);
-                if (snapshot.exists()) {
-                    setItem(snapshot.val());
-                } else {
-                    setItem(null);
-                }
-            } catch (error) {
-                setItem(null);
-            }
-            setLoading(false);
-        };
-
-        if (id) fetchItem();
-    }, [id]);
-
-    if (loading) {
-        return <div className="text-center py-8">Loading...</div>;
-    }
+    const item = await fetchItem(id);
+    
 
     if (!item) {
         return <div className="text-center py-8 text-red-500">Item not found.</div>;
@@ -69,3 +48,14 @@ export default function ProductDetails( { id }: { id: string }) {
         </div>
     );
 };
+
+export async function fetchItem(itemId: string): Promise<Item | null> {
+    const itemRef = ref(db, `items/${itemId}`);
+    const snapshot = await get(itemRef);
+
+    if (!snapshot.exists()) {
+        return null;
+    }
+
+    return snapshot.val();
+}

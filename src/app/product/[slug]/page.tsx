@@ -1,6 +1,7 @@
 import NavbarShop from "../../shop/componentsShop/NavbarShop";
 import CarouselProduct from "./componentsProduct/CarouselProduct";
 import ProductDetails from "./componentsProduct/ProductDetails";
+import { Suspense } from "react";
 
 export default async function ProductPage(props: { params: Promise<{ slug: string }> }) {
     const params = await props.params;  // slug is last part of url (itemID)
