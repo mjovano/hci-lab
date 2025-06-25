@@ -34,7 +34,7 @@ export default function Shop() {
             </div>
 
 
-            <div className="flex w-full min-h-screen gap-4 pb-20 md:pb-50">
+            <div className="flex w-full h-svh md:h-180 gap-4 pb-20 ">
 
                 <div className="hidden md:block w-1/6 bg-white/10 rounded-lg backdrop-blur-xl p-4 overflow-auto">
                 <Suspense>

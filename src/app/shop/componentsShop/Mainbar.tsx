@@ -47,10 +47,10 @@ export default function Mainbar() {
                         {/*count needs to be dynamic within this component*/}
                         <Results count={100000000} onFilterChange={handleFilterChange}/>
                     </div>
-                    <div className="flex-1 backdrop-blur-xs bg-amber-700/10 rounded-3xl mx-2">
-                            {/* product cards *
+                    <div className="flex-1 backdrop-blur-xs bg-amber-700/10 rounded-3xl mx-2 overflow-auto">
+                            {/* product cards     */}
                             {items && (
-                                <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 2xl:grid-cols-5 md:gap-6 py-4 px-2 md:p-6 overflow-y-scroll">
+                                <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 2xl:grid-cols-5 md:gap-6 py-4 px-2 md:p-6">
                                     {Object.entries(items).map(([key, item]) => (
                                         <div
                                             key={key}
@@ -80,7 +80,6 @@ export default function Mainbar() {
                                     ))}
                                 </div>
                             )}
-                                */}
 
 
                     </div>

@@ -81,6 +81,9 @@ const sizeOptions: FilterOption[] = [
     { label: 'Small', value: 'small' },
     { label: 'Medium', value: 'medium' },
     { label: 'Large', value: 'large' },
+    { label: 'Small1', value: 'small1' },
+    { label: 'Medium1', value: 'medium1' },
+    { label: 'Large1', value: 'large1' },
 ];
 
 
@@ -112,7 +115,7 @@ export default function Sidebar() {
     };
 
     return (
-        <div className="w-full h-full flex flex-col p-4">
+        <div className="w-full flex flex-col p-4 overflow-auto">
             
             <div className="mb-4">
                 <Suspense>
