@@ -19,7 +19,7 @@ interface ResultsProps {
     onFilterChange?: (key: string) => void;
 }
 
-function Results({ count, onFilterChange }: ResultsProps) {
+export default function Results({ count, onFilterChange }: ResultsProps) {
     const [selectedKey, setSelectedKey] = useState<string>(filterOptions[0].tag);
 
     const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -64,5 +64,3 @@ function Results({ count, onFilterChange }: ResultsProps) {
         </div>
     );
 }
-
-export default Results;

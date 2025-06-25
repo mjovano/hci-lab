@@ -14,10 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="overflow-hidden">
+      <body className="">
         
         <div
-          className="absolute inset-0 -z-10"
+          className="absolute inset-0 -z-20"
           style={{
             backgroundImage: "url('/img/bg.png')",
             backgroundSize: 'cover',

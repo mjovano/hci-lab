@@ -1,13 +1,28 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ref, get } from "firebase/database";
 import { db } from "@/firebaseConfig";
 
-export default async function CarouselProduct({ slug }: { slug: string }) {
+export default function CarouselProduct({ slug }: { slug: string }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [flag, setFlag] = useState(false);
+    const [images, setImages] = useState<string[]>([]);
 
-    const images = await fetchItemImages(slug);
+    useEffect(() => {
+        const fetchImages = async () => {
+            try {
+                const fetchedImages = await fetchItemImages(slug);
+                setImages(fetchedImages);
+                console.log("Fetched images:", fetchedImages);
+            } catch (error) {
+                console.error("Error fetching images:", error);
+            }
+        };
+
+        fetchImages();
+    }, [slug]);
+
+    
 
     const goToPrevious = () => {
         setCurrentIndex((prevIndex) =>

@@ -15,19 +15,27 @@ interface Item {
     featured?: boolean;
 }
 
-export default async function ProductDetails( { id }: { id: string }) {
-    //const [item, setItem] = useState<Item | null>(null);
-    //const [loading, setLoading] = useState(true);
+export default function ProductDetails({ id }: { id: string }) {
     const [user, setUser] = useState<User | null>(null);
+    const [item, setItem] = useState<Item | null>(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const auth = getAuth();
         const unsubscribe = onAuthStateChanged(auth, setUser);
         return () => unsubscribe();
     }, []);
 
-    const item = await fetchItem(id);
-    
+    useEffect(() => {
+        setLoading(true);
+        fetchItem(id).then(fetchedItem => {
+            setItem(fetchedItem);
+            setLoading(false);
+        });
+    }, [id]);
+
+    if (loading) {
+        return <div className="text-center py-8">Loading...</div>;
+    }
 
     if (!item) {
         return <div className="text-center py-8 text-red-500">Item not found.</div>;
