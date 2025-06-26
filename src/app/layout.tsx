@@ -26,7 +26,7 @@ export default function RootLayout({
           style={{
             backgroundImage: `url(/img/bg.png)`,
             backgroundSize: 'cover',
-            backgroundPosition: 'middle',
+            backgroundPosition: 'top',
             opacity: 1,
             pointerEvents: 'none',
           }}

@@ -115,7 +115,7 @@ export default function Sidebar() {
     };
 
     return (
-        <div className="w-full flex flex-col p-4 overflow-auto">
+        <main className="w-full h-full flex flex-col p-4 overflow-auto">
             
             <div className="mb-4">
                 <Suspense>
@@ -147,6 +147,6 @@ export default function Sidebar() {
                 selected={getSelected('size')}
                 onChange={handleChange('size')}
             />
-        </div>
+        </main>
     );
 }

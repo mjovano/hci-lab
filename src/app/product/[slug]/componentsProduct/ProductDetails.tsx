@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import { db, auth } from "@/firebaseConfig";
-import { ref, get } from "firebase/database";
-import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
+import { ref, get, set } from "firebase/database";
+import { onAuthStateChanged, User } from 'firebase/auth';
 
 interface Item {
     name?: string;
@@ -11,8 +11,10 @@ interface Item {
     desc?: string;
     vendor?: string;
     date?: string;
-    images?: { key: string; value: string }[];
+    images?: Record<string, string>;
     featured?: boolean;
+    type?: string;
+    size?: string;
 }
 
 export default function ProductDetails({ id }: { id: string }) {
@@ -33,6 +35,8 @@ export default function ProductDetails({ id }: { id: string }) {
         });
     }, [id]);
 
+    const uid = user ? user.uid : null;
+
     if (loading) {
         return <div className="text-center py-8">Loading...</div>;
     }
@@ -42,20 +46,56 @@ export default function ProductDetails({ id }: { id: string }) {
     }
 
     return (
-        <div className="flex flex-col gap-4 p-6 bg-white rounded shadow">
-            <div>
-                <span className="font-semibold">Name:</span> {item.name || "N/A"}
+        <div className="flex flex-col gap-4 p-10 bg-gray-100/30 rounded-lg max-h-screen">
+            <div className="flex justify-center font-semibold text-4xl mb-6 tracking-widest primary-secondary overline text-indigo-950"> {item.name} </div>
+
+            <hr className="bg-gradient-to-r from-indigo-800 border-lime-700 p-1 backdrop-blur-xs" />
+
+            <div className="flex text-center m-2 md:m-6 p-2 md:p-4 backdrop-blur-lg bg-amber-500/20 rounded-xl text-xs md:text-lg">  {item.desc} </div>
+
+            <div className="flex items-center justify-around my-6">
+                <button
+                    className="bg-zinc-600 hover:bg-zinc-900 text-amber-100 font-bold py-3 px-8 rounded-lg md:text-lg font-primary"
+                    onClick={() => {
+                        if (uid) {
+                            addToCart(id, uid)
+                                .then(() => alert("Item added to cart!"))
+                                .catch(error => console.error("Error adding item to cart:", error));
+                        } else {
+                            alert("Please log in to add items to your cart.");
+                        }
+                    }}
+                >
+                    Add to Cart
+                </button>
+                <span className="md:text-2xl font-semibold text-gray-800 tracking-wide p-2 backdrop-blur-md rounded-lg">
+                    Price: {item.price ? `  ${item.price}` : "Price not available"}
+                </span>
             </div>
-            <div>
-                <span className="font-semibold">Price:</span> {item.price || "N/A"}
+
+            
+            <div className="hidden md:flex justify-between my-4 text-gray-700 backdrop-blur-md p-2 rounded-b-md">
+                <span>Vendor: {item.vendor || "Unknown"}</span>
+                <span>Date added: {item.date || "Not specified"}</span>
+            
             </div>
-            <div>
-                <span className="font-semibold">Description:</span> {item.desc || "N/A"}
-            </div>
-            {/* Add more fields as needed */}
+
+
         </div>
     );
 };
+
+export async function addToCart(itemId: string, userId: string): Promise<void> {
+    const cartRef = ref(db, `users/${userId}/cart`);
+
+    await get(cartRef).then(snapshot => {
+        const cart = snapshot.val() || {};
+        cart[itemId] = (cart[itemId] || 0) + 1; // increment item quantity
+        return set(cartRef, cart);
+    }
+    );
+}
+
 
 export async function fetchItem(itemId: string): Promise<Item | null> {
     const itemRef = ref(db, `items/${itemId}`);
@@ -64,6 +104,5 @@ export async function fetchItem(itemId: string): Promise<Item | null> {
     if (!snapshot.exists()) {
         return null;
     }
-
     return snapshot.val();
 }

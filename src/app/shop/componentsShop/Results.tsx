@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, ChangeEvent } from 'react';
+import Sidebar from './Sidebar';
 
 type FilterOption = {
     label: string;
@@ -21,6 +22,7 @@ interface ResultsProps {
 
 export default function Results({ count, onFilterChange }: ResultsProps) {
     const [selectedKey, setSelectedKey] = useState<string>(filterOptions[0].tag);
+    const [showSidebar, setShowSidebar] = useState<boolean>(false);
 
     const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
         setSelectedKey(e.target.value);
@@ -39,12 +41,28 @@ export default function Results({ count, onFilterChange }: ResultsProps) {
 
             </div>
 
-            <button
-                className="md:hidden bg-zinc-700 text-amber-100 text-md px-8 py-1 rounded-2xl mx-6 font-secondary"
-                type="button"
-            >
-                Filter
-            </button>
+            <div className="relative">
+                <button
+                    className="md:hidden bg-zinc-700 text-amber-100 text-md px-8 py-1 rounded-2xl mx-6 font-secondary"
+                    type="button"
+                    onClick={() => setShowSidebar(true)}
+                >
+                    Filter
+                </button>
+                {showSidebar && (
+                    <div className="fixed top-0 inset-0 z-20 flex items-start justify-end bg-black/50">
+                        <div className="bg-lime-100/50 backdrop-blur-lg shadow-lg p-4 w-96 h-full">
+                            <button
+                                className="flex mb-4 text-amber-100 font-bold justify-self-center p-4 bg-zinc-600 hover:bg-zinc-700 rounded-lg font-primary"
+                                onClick={() => setShowSidebar(false)}
+                            >
+                                Close
+                            </button>
+                            <Sidebar />
+                        </div>
+                    </div>
+                )}
+            </div>
 
             <div className="flex items-center">
                 <select

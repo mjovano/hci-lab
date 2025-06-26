@@ -36,13 +36,15 @@ export default function Shop() {
 
             <div className="flex w-full h-svh md:h-180 gap-4 pb-20 ">
 
-                <div className="hidden md:block w-1/6 bg-white/10 rounded-lg backdrop-blur-xl p-4 overflow-auto">
+                <div className="hidden md:block w-1/6 bg-white/10 rounded-lg backdrop-blur-xl p-4">
                 <Suspense>
                     <Sidebar/> 
                 </Suspense>       
                 </div>
 
-                <Mainbar />
+                <Suspense>
+                    <Mainbar />
+                </Suspense>
 
             </div>
 

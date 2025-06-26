@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { ref, get } from "firebase/database";
 import { db } from "@/firebaseConfig";
+import ProductDetails from "./ProductDetails";
 
 export default function CarouselProduct({ slug }: { slug: string }) {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -13,7 +14,6 @@ export default function CarouselProduct({ slug }: { slug: string }) {
             try {
                 const fetchedImages = await fetchItemImages(slug);
                 setImages(fetchedImages);
-                console.log("Fetched images:", fetchedImages);
             } catch (error) {
                 console.error("Error fetching images:", error);
             }
@@ -127,13 +127,13 @@ else {
         <div className="relative w-full md:h-3/4 mx-auto flex flex-col items-center">
             <button
                 onClick={() => setFlag(false)}
-                className="bg-zinc-600/80 hover:bg-zinc-800 rounded-full text-amber-100 shadow px-12"
+                className="bg-zinc-600/80 hover:bg-zinc-800 rounded-full text-amber-100 shadow px-12 mb-4"
                 type="button"
             >
                 &#11165;
             </button>
 
-            comp dupe, use slug
+            <ProductDetails id={slug} />
 
         </div>
     );

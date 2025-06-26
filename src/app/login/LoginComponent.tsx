@@ -149,8 +149,8 @@ export default function LoginComponent() {
                 </div>
             </div>
 
-            {user && (
-                <div className="max-w-md p-10 bg-gray-100/50 rounded-xl shadow backdrop-blur-xs flex flex-col gap-4 items-center">
+            
+            <div className="max-w-md p-10 bg-gray-100/50 rounded-xl shadow backdrop-blur-xs flex flex-col gap-4 items-center">
                     
                     <Link
                         prefetch={false}
@@ -171,8 +171,8 @@ export default function LoginComponent() {
                     >
                         Go to Blog Page
                     </Link>
-                </div>
-            )}
+            </div>
+            
 
         </div>
         
