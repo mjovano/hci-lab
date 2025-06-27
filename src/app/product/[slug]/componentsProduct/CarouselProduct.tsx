@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import { ref, get } from "firebase/database";
 import { db } from "@/firebaseConfig";
 import ProductDetails from "./ProductDetails";
@@ -8,6 +8,7 @@ export default function CarouselProduct({ slug }: { slug: string }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [flag, setFlag] = useState(false);
     const [images, setImages] = useState<string[]>([]);
+    const [itemName, setItemName] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchImages = async () => {
@@ -18,8 +19,17 @@ export default function CarouselProduct({ slug }: { slug: string }) {
                 console.error("Error fetching images:", error);
             }
         };
+        const fetchName = async () => {
+            try {
+                const name = await fetchItemName(slug);
+                setItemName(name);
+            } catch (error) {
+                console.error("Error fetching item name:", error);
+            }
+        };
 
         fetchImages();
+        fetchName();
     }, [slug]);
 
     
@@ -40,7 +50,7 @@ export default function CarouselProduct({ slug }: { slug: string }) {
         return (
             <div className="relative w-full h-full md:h-3/4 mx-auto flex flex-col items-center">
 
-                <div className="relative w-full md:h-4/5 h-2/5 aspect-square bg-gray-100/30 flex items-center justify-center rounded-lg">
+                <div className="relative w-full md:h-4/5 h-2/5 aspect-square bg-gray-300/50 flex items-center justify-center rounded-lg">
                     <img
                         src={images[currentIndex]}
                         alt={`Product image ${currentIndex + 1}`}
@@ -69,7 +79,7 @@ export default function CarouselProduct({ slug }: { slug: string }) {
                 
 
                 <div
-                    className={`flex items-center w-full md:mt-8 mt-2 md:px-12 px-4 py-1 gap-2 rounded-xl bg-gray-100/30 ${
+                    className={`flex items-center w-full md:mt-8 mt-2 md:px-12 px-4 py-1 gap-2 rounded-xl bg-gray-300/50 ${
                         images.length < 4 ? "justify-around" : "justify-between"
                     }`}
                 >
@@ -94,10 +104,10 @@ export default function CarouselProduct({ slug }: { slug: string }) {
                         </button>
                     ))}
                 </div>
-                
 
                 
-                <span className="font-bold text-lg text-gray-800 mt-4 md:hidden ">Mistubiri tent </span>
+                <span className="font-bold text-2xl text-gray-800 mt-8 p-1 md:hidden font-primary tracking-wider"> {itemName} </span>
+                <hr className="bg-gradient-to-r from-indigo-800 border-transparent p-0.5 backdrop-blur-xs w-full md:hidden"/>
 
                 <div className="w-full md:mt-30 mt-15">
                     <a
@@ -150,4 +160,15 @@ export async function fetchItemImages(itemId: string): Promise<string[]> {
 
     const imagesObj = snapshot.val();
     return Object.values(imagesObj);
+}
+
+export async function fetchItemName(itemId: string): Promise<string | null> {
+    const itemRef = ref(db, `items/${itemId}/name`);
+    const snapshot = await get(itemRef);
+
+    if (!snapshot.exists()) {
+        return null;
+    }
+
+    return snapshot.val();
 }

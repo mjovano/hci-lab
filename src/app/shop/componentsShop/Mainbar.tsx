@@ -94,11 +94,11 @@ export default function Mainbar() {
                     <div className="flex-1 backdrop-blur-xs bg-amber-700/10 rounded-3xl mx-2 overflow-auto">
                             {/* product cards     */}
                             {displayedItems && (
-                                <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 2xl:grid-cols-5 md:gap-6 py-4 px-2 md:p-6">
+                                <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3 md:gap-6 py-4 px-2 md:p-6">
                                     {Object.entries(displayedItems).map(([key, item]) => (
                                         <div
                                             key={key}
-                                            className="relative bg-zinc-600/30 rounded-xl shadow-md flex flex-col w-40 md:w-48"
+                                            className="relative bg-zinc-600/30 rounded-xl shadow-md flex flex-col md:w-full"
                                         >
                                             {item.images && (
                                                 <>
@@ -110,15 +110,15 @@ export default function Mainbar() {
                                             )}
                                             
                                             <div className="flex-1 flex flex-col p-4">
-                                                <h2 className="text-lg font-semibold text-center mb-2">{item.name}</h2>
+                                                <h2 className="text-lg font-semibold font-secondary text-center mb-2 bg-gradient-to-r from-indigo-300/80 rounded-lg text-amber-900">{item.name}</h2>
                                                 <div className="flex items-end justify-between mt-auto">
                                                     <a
                                                         href={`/product/${encodeURIComponent(item.key || '')}`}
-                                                        className="bg-indigo-300 text-white p-2 rounded-lg text-sm font-medium hover:bg-amber-800 transition"
+                                                        className="bg-indigo-300 text-white p-2 rounded-lg text-sm font-secondary hover:bg-amber-800 transition"
                                                     >
                                                         Buy now
                                                     </a>
-                                                    <span className="text-lg font-bold text-amber-300">
+                                                    <span className="text-lg font-bold text-amber-300 mb-1">
                                                         {item.price ? `${item.price}` : 'N/A'}
                                                     </span>
                                                 </div>

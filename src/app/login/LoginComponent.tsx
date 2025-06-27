@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 import { auth, db } from "../../firebaseConfig";
 import { createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, signOut, deleteUser, User, getAuth, onAuthStateChanged,} from "firebase/auth";
-import {ref, set, remove } from "firebase/database";
+import { ref, set, remove } from "firebase/database";
 
 export default function LoginComponent() {
     const [tab, setTab] = useState<'signin' | 'signup'>('signin');
@@ -145,7 +145,7 @@ export default function LoginComponent() {
                 )}
 
                 <div className="mt-4 text-center text-sm text-gray-500">
-                    {user ? `Logged in as ${user.email}, ID is ${user.uid}` : 'Please sign in or sign up.'}
+                    {user ? `Logged in as ${user.email}` : 'Please sign in or sign up.'}
                 </div>
             </div>
 
@@ -166,10 +166,10 @@ export default function LoginComponent() {
                         Go to Shop Page
                     </Link>
                     <Link
-                        href="/Blog"
+                        href="/cart"
                         className="w-full p-2 px-6 bg-zinc-600 text-amber-100 rounded hover:bg-zinc-700 text-center text-semibold text-lg"
                     >
-                        Go to Blog Page
+                        Go to your Cart
                     </Link>
             </div>
             

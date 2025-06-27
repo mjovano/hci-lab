@@ -36,9 +36,9 @@ const boxTexts = [
 
       <Carousel
         urls={[
-          "https://i.imgur.com/ZKz3Xa9.jpeg",
-          "https://i.imgur.com/3X9m4dH.jpeg",
-          "https://i.imgur.com/IcGH43e.jpeg",
+          "https://gallery.yopriceville.com/var/albums/Free-Clipart-Pictures/Summer-Vacation-PNG/Tourist_Tent_PNG_Clip_Art_Image.png?m=1629816881",
+          "https://www.summitjournal.com/cdn/shop/files/unisex-staple-t-shirt-burnt-orange-front-6555829a2a135.png",
+          "https://png.pngtree.com/png-vector/20220612/ourmid/pngtree-set-of-camping-equipment-and-stuff-tent-png-image_4823043.png",
         ]}
       />
 

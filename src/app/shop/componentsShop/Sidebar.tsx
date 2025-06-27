@@ -62,28 +62,30 @@ const Dropdown = ({ title, options, selected, onChange }: DropdownProps) => {
 const typeOptions: FilterOption[] = [
     { label: 'Tent', value: 'tent' },
     { label: 'Gear', value: 'gear' },
-    { label: 'Misc', value: 'misc' },
+    { label: 'Food', value: 'food' },
+    { label: 'Other', value: 'other' },
 ];
 
 const priceOptions: FilterOption[] = [
     { label: '$0-$10', value: '0-10' },
     { label: '$10-$100', value: '10-100' },
-    { label: '$100+', value: '100+' },
+    { label: '$100-$300', value: '100-300' },
+    { label: '$300-1000$', value: '300-1000' },
 ];
 
 const vendorOptions: FilterOption[] = [
-    { label: 'Vendor1', value: 'vendor1' },
-    { label: 'Vendor2', value: 'vendor2' },
-    { label: 'Vendor3', value: 'vendor3' },
+    { label: 'OutMoors', value: 'Outmoors' },
+    { label: 'TikiTents', value: 'Tikitents' },
+    { label: 'SummitSupply', value: 'SummitSupply' },
+    { label: 'MountainGear', value: 'MountainGear' },
+    { label: 'TrailBlazers', value: 'TrailBlazers' },
 ];
 
 const sizeOptions: FilterOption[] = [
+    { label: 'Tiny', value: 'tiny' },
     { label: 'Small', value: 'small' },
     { label: 'Medium', value: 'medium' },
     { label: 'Large', value: 'large' },
-    { label: 'Small1', value: 'small1' },
-    { label: 'Medium1', value: 'medium1' },
-    { label: 'Large1', value: 'large1' },
 ];
 
 

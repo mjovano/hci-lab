@@ -46,10 +46,10 @@ export default function ProductDetails({ id }: { id: string }) {
     }
 
     return (
-        <div className="flex flex-col gap-4 p-10 bg-gray-100/30 rounded-lg max-h-screen">
-            <div className="flex justify-center font-semibold text-4xl mb-6 tracking-widest primary-secondary overline text-indigo-950"> {item.name} </div>
+        <div className="flex flex-col gap-4 p-4 md:p-10 bg-gray-300/50 rounded-lg max-h-screen">
+            <div className="hidden md:flex justify-center font-semibold text-4xl mb-6 tracking-widest font-primary overline text-indigo-950"> {item.name} </div>
 
-            <hr className="bg-gradient-to-r from-indigo-800 border-lime-700 p-1 backdrop-blur-xs" />
+            <hr className="hidden md:flex bg-gradient-to-r from-indigo-800 border-transparent p-1 backdrop-blur-xs rounded-b-lg mb-4 ml-6" />
 
             <div className="flex text-center m-2 md:m-6 p-2 md:p-4 backdrop-blur-lg bg-amber-500/20 rounded-xl text-xs md:text-lg">  {item.desc} </div>
 
@@ -74,7 +74,7 @@ export default function ProductDetails({ id }: { id: string }) {
             </div>
 
             
-            <div className="hidden md:flex justify-between my-4 text-gray-700 backdrop-blur-md p-2 rounded-b-md">
+            <div className="flex justify-between m-4 text-gray-700 backdrop-blur-md p-2 text-xs md:text-lg rounded-b-md">
                 <span>Vendor: {item.vendor || "Unknown"}</span>
                 <span>Date added: {item.date || "Not specified"}</span>
             

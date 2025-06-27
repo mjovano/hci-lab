@@ -1,13 +1,7 @@
 "use client";
-
-import Image from "next/image";
 import { useState } from "react";
 
-type CarouselProps = {
-  urls: string[];
-};
-
-export default function Carousel({ urls }: CarouselProps) {
+export default function Carousel({ urls }: {urls: string[]}) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToPrevious = () => {
@@ -25,14 +19,13 @@ export default function Carousel({ urls }: CarouselProps) {
   return (
     <div className="relative w-full md:w-3xl h-64 md:h-82 rounded-4xl mx-3xl mx-auto overflow-hidden shadow-lg backdrop-blur-xs">
       <div className="relative w-full h-full items-center justify-around">
-        <Image
-          src={urls[currentIndex]}
-          alt={`Slide ${currentIndex}`}
-          layout="fill"
-          objectFit="contain"
-          sizes=""
-          className="max-h-1/2 m-auto"
-        />
+        <a href="/shop">
+          <img
+            src={urls[currentIndex]}
+            alt={`Slide ${currentIndex}`}
+            className="max-h-3/4 m-auto w-full object-contain mt-8"
+          />
+        </a>
       </div>
       <button
         onClick={goToPrevious}
