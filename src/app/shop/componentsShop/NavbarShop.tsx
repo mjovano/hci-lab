@@ -1,14 +1,65 @@
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function Navbar() {
+    
+    const [drawerOpen, setDrawerOpen] = useState(false);
+
+    const handleDrawerToggle = () => {
+        setDrawerOpen((prev) => !prev);
+    };
+    
 
     return (
     <nav className="relative flex h-12 md:h-20">
         <div className="bg-zinc-600 w-full flex h-full items-center justify-between px-4 md:px-12">
 
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="mx-2 size-6 md:hidden text-amber-100">
-                <path fillRule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clipRule="evenodd" />
-            </svg>
+            <button
+                    type="button"
+                    className="md:hidden focus:outline-none"
+                    onClick={handleDrawerToggle}
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="mx-2 size-6 fill-amber-100">
+                        <path fillRule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clipRule="evenodd" />
+                    </svg>
+                </button>
+
+                {drawerOpen && (
+                    <div className="fixed inset-0 z-30 mt-14 bg-zinc-600 flex flex-col items-center">
+                        <nav className="flex flex-col text-2xl font-secondary font-light text-amber-100 w-full p-4">
+                            <Link href="/shop" onClick={handleDrawerToggle} className="flex items-center justify-between py-4 px-2">
+                                <span className = "font-bold">Shop</span>
+                                <span className="text-2xl ml-2">{'\u25B6'}</span>
+                            </Link>
+                            <hr className="w-full border-amber-200 mb-6"/>
+                            <Link href="/shop?type=tent" onClick={handleDrawerToggle} className="flex items-center justify-between py-4 px-2">
+                                <span>Tents</span>
+                                <span className="text-2xl ml-2">{'\u25B6'}</span>
+                            </Link>
+                            <hr className="w-full border-amber-200" />
+                            <Link href="/shop?type=gear" onClick={handleDrawerToggle} className="flex items-center justify-between py-4 px-2">
+                                <span>Gear</span>
+                                <span className="text-2xl ml-2">{'\u25B6'}</span>
+                            </Link>
+                            <hr className="w-full border-amber-200" />
+                            <Link href="/shop?type=food" onClick={handleDrawerToggle} className="flex items-center justify-between py-4 px-2">
+                                <span>Food</span>
+                                <span className="text-2xl ml-2">{'\u25B6'}</span>
+                            </Link>
+                            <hr className="w-full border-amber-200" />
+                            <Link href="/shop?type=other" onClick={handleDrawerToggle} className="flex items-center justify-between py-4 px-2">
+                                <span>Other</span>
+                                <span className="text-2xl ml-2">{'\u25B6'}</span>
+                            </Link>
+                            <hr className="w-full border-amber-200 mb-8" />
+                            <Link href="/shop?type=other" onClick={handleDrawerToggle} className="flex items-center justify-between py-4 px-2">
+                                <span className = "font-bold">Blog</span>
+                                <span className="text-2xl ml-2">{'\u25B6'}</span>
+                            </Link>
+                            <hr className="w-full border-amber-200" />
+                        </nav>
+                    </div>
+                )}
 
             <Link href="/" className="text-amber-100 font-primary md:text-3xl text-center hover:underline focus:outline-none md:pl-12">
                 Summit Supply

@@ -1,4 +1,4 @@
-#Summit Supply
+# Summit Supply
 
 Hosted on Vercel.
 
@@ -6,7 +6,7 @@ Database hosted on Firebase, using realtime database solution.
 
 ## Low Fidelity mockups
 
-Made with Figma
+Made with Figma.
 
 ### Desktop:
 
@@ -18,21 +18,23 @@ Made with Figma
 
 ### Mobile:
 
-![Phone_one](img/Phone1.png)
+![Phone_one](img/Phone.png)
 
-![Phone_two](img/Phone2.png)
+![Phone_two](img/Phone1.png)
 
 ## Final product:
 
 Slight differences from the initial design, but overall good consistency.
 
+
 ### Desktop screenshot, deployed version:
 
-![Desktop_deployed](img/desk_dep.png)
+![Desktop_deployed](img/desk-dep.png)
 
 ### Mobile screenshot, deployed version:
 
-![Mobile_deployed](img/mob_dep.png)
+![Mobile_deployed](img/mob-dep.png)
+
 
 ## Metrics:
 
@@ -41,6 +43,8 @@ Slight differences from the initial design, but overall good consistency.
 ![Desktop-metrics](img/desk-ins.png)
 
 Performance seems to marginally suffer, likely due to usage of some outdated practices, and heavy realiance on data fetching from Firebase. Other metrics seem to be at an acceptable level.
+
+
 
 ### Mobile results:
 

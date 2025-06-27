@@ -19,7 +19,7 @@
 ### Semester Project
 
 - Link to your production version: [**Production Version**](https://hci-ambwapm90-mislavs-projects-edce645a.vercel.app) <!-- Replace with actual URL -->
-- Link to your final report: [**Final Report**](URL_TO_FINAL_REPORT) <!-- Replace with actual URL -->
+- Link to your final report: [**Final Report**](https://github.com/mjovano/hci-lab/blob/master/docs/FinalReport.md) <!-- Replace with actual URL -->
 <!-- Add more as necessary -->
 
 ### Semester Assignments
