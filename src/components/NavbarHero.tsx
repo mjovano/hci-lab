@@ -13,7 +13,7 @@ export default function Navbar() {
     
     return (
         <nav className="relative flex items-center justify-around -mt-2 -mx-2 h-12 md:h-16">
-            <div className="bg-zinc-600 w-full md:w-1/2 flex md:rounded-2xl h-full md:h-2/3 items-center justify-between px-4 md:px-8 2xl:pl-28">
+            <div className="bg-zinc-600 w-full md:w-3/4 xl:w-1/2 flex md:rounded-2xl h-full md:h-2/3 items-center justify-between px-4 md:px-8 2xl:pl-28">
 
                 <button
                     type="button"
@@ -66,7 +66,7 @@ export default function Navbar() {
                     Summit Supply
                 </span>
             
-                <div className="hidden md:flex xl:space-x-16 space-x-8 ml-8 text-xl font-secondary">
+                <div className="hidden md:flex lg:space-x-16 space-x-6  md:ml-18 xl:ml-8 text-xl md:text-lg font-secondary">
                     <Link href="/shop" className="text-amber-100 hover:text-indigo-400">
                         Shop
                     </Link>

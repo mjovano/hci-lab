@@ -11,12 +11,12 @@ export default function Search( { showButton }: SearchProps) {
   const searchParams = useSearchParams();
 
   return (
-    <form action="/shop" className="flex items-center justify-center w-full">
+    <form action="/shop" className="flex items-center justify-center w-full text-black">
       <input
         type="text"
         name="q"
         placeholder="Search..."
-        className="w-full max-w-md p-2 border border-gray-700 bg-amber-100/80 rounded-xl"
+        className="max-w-md p-2 border border-gray-700 bg-amber-100/80 rounded-xl w-50 xl:w-full"
         defaultValue={searchParams?.get('q') || ''}
       />
       <button

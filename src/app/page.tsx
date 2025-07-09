@@ -23,7 +23,7 @@ const boxTexts = [
 
       <Navbar/>
       
-      <div className="relative flex flex-row space-x-4 my-6 mx-auto items-center md:w-1/2">
+      <div className="relative flex flex-row space-x-4 my-6  ml-18 lg:mx-auto items-center md:w-1/2">
         <div className="flex-1 p-4">
           <Suspense>
             <Search />

@@ -71,19 +71,19 @@ export default function LoginComponent() {
 
         <div className="flex flex-col items-center justify-center min-h-screen gap-y-14">
             <div className="max-w-sm p-6 bg-gray-100/50 rounded shadow backdrop-blur-xs mx-2">
-                <div className="mb-4 text-xl font-semibold text-center text-indigo-900">
+                <div className="mb-4 text-xl font-semibold text-center text-indigo-700">
                     Welcome, {user?.displayName || 'guest'}!
                 </div>
                 {!user && (
                     <div className="flex mb-6">
                         <button
-                            className={`flex-1 py-2 rounded-l ${tab === 'signin' ? 'bg-zinc-700 text-amber-100' : 'bg-gray-300'}`}
+                            className={`flex-1 py-2 rounded-l ${tab === 'signin' ? 'bg-zinc-900 text-amber-100' : 'bg-gray-300 text-indigo-900 opacity-75'}`}
                             onClick={() => setTab('signin')}
                         >
                             Sign In
                         </button>
                         <button
-                            className={`flex-1 py-2 rounded-r ${tab === 'signup' ? 'bg-zinc-700 text-amber-100' : 'bg-gray-300'}`}
+                            className={`flex-1 py-2 rounded-r ${tab === 'signup' ? 'bg-zinc-900 text-amber-100' : 'bg-gray-300 text-indigo-900 opacity-75'}`}
                             onClick={() => setTab('signup')}
                         >
                             Sign Up
@@ -92,7 +92,7 @@ export default function LoginComponent() {
                 )}
                 {error && <div className="mb-4 text-red-800 text-sm">{error}</div>}
                 {!user ? (
-                    <form onSubmit={tab === 'signin' ? handleSignIn : handleSignUp} className="space-y-4">
+                    <form onSubmit={tab === 'signin' ? handleSignIn : handleSignUp} className="space-y-4 text-black">
                         <input
                             type="email"
                             className="w-full px-3 py-2 border rounded bg-amber-100/50"

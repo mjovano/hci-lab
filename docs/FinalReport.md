@@ -36,6 +36,39 @@ Slight differences from the initial design, but overall good consistency.
 ![Mobile_deployed](img/mob-dep.png)
 
 
+## Information architecture:
+
+### Sitemap
+
+![Sitemap](img/sitemap.png)
+
+### Website navigation flowchart
+
+![Sitemap](img/flowchart.png)
+
+
+## CRAP Principles
+
+### Contrast
+
+Contrasting three-part color pallete used, desaturated lime for background, wide spectrum of amber for foreground, indigo for accent, zinc(gray) for navbar and buttons.
+
+![Color-Pallete](img/pallete.png)
+
+### Repetition
+
+Reused navbar, button style, item list layout in shop page, ect.
+
+### Alignment
+
+Inverted pyramid layout that settles into straight alignment in hero page, all pages uses generous horizontal padding for content with the exception of the navbar, ect.
+
+### Proximity
+
+Item list, Cart, home page boxes, navbar links, ect.
+
+
+
 ## Metrics:
 
 ### Desktop results:
@@ -51,6 +84,8 @@ Performance seems to marginally suffer, likely due to usage of some outdated pra
 ![Mobile-metrics](img/mob-ins.png)
 
 Significant preformance drop when switching to mobile, other metrics are mostly unchanged.
+
+
 
 ## Summary:
 

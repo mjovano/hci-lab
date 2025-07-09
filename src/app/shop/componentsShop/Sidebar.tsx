@@ -74,8 +74,8 @@ const priceOptions: FilterOption[] = [
 ];
 
 const vendorOptions: FilterOption[] = [
-    { label: 'OutMoors', value: 'Outmoors' },
-    { label: 'TikiTents', value: 'Tikitents' },
+    { label: 'OutMoors', value: 'OutMoors' },
+    { label: 'TikiTents', value: 'TikiTents' },
     { label: 'SummitSupply', value: 'SummitSupply' },
     { label: 'MountainGear', value: 'MountainGear' },
     { label: 'TrailBlazers', value: 'TrailBlazers' },

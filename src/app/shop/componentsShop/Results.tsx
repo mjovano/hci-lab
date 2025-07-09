@@ -36,7 +36,7 @@ export default function Results({ count, onFilterChange }: ResultsProps) {
 
             <div className="hidden md:flex flex-col ml-12 pt-3">
 
-                <span className="text-gray-800 text-md font-secondary tracking-wide">{count} &nbsp; &nbsp; results</span>
+                <span className="text-zinc-600 text-md font-secondary tracking-wide">{count} &nbsp; &nbsp; results</span>
                 <hr className="w-full border-gray-800 mt-1" />
 
             </div>

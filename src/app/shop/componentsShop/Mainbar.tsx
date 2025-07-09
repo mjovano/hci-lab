@@ -110,7 +110,7 @@ export default function Mainbar() {
                                             )}
                                             
                                             <div className="flex-1 flex flex-col p-4">
-                                                <h2 className="text-lg font-semibold font-secondary text-center mb-2 bg-gradient-to-r from-indigo-300/80 rounded-lg text-amber-900">{item.name}</h2>
+                                                <h2 className="text-lg font-semibold font-secondary text-center mb-2 bg-gradient-to-r from-indigo-300/80 rounded-lg text-amber-800">{item.name}</h2>
                                                 <div className="flex items-end justify-between mt-auto">
                                                     <a
                                                         href={`/product/${encodeURIComponent(item.key || '')}`}
